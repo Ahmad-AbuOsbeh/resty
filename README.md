@@ -34,7 +34,8 @@
 
 ### Deployment link:
 
-- [https://bgcoq.csb.app/](https://bgcoq.csb.app/)
+- [lab27-Sandbox-link](https://codesandbox.io/s/lab27-2pg5x)
+- [https://2pg5x.csb.app/](https://2pg5x.csb.app/)
 
 ### UML
 
