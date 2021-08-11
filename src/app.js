@@ -9,16 +9,17 @@ import { useState } from 'react';
 function App() {
   const [data, setData] = useState(null);
   const [requestParams, setReqParams] = useState({});
-  function callApi(requestParams) {
+  function callApi(requestParams, response) {
     // mock output
-    const data = {
-      count: 2,
-      results: [
-        { name: 'fake thing 1', url: 'http://fakethings.com/1' },
-        { name: 'fake thing 2', url: 'http://fakethings.com/2' },
-      ],
-    };
-    setData(data);
+    // const data = {
+    //   count: 2,
+    //   results: [
+    //     { name: 'fake thing 1', url: 'http://fakethings.com/1' },
+    //     { name: 'fake thing 2', url: 'http://fakethings.com/2' },
+    //   ],
+    // };
+    // data = response;
+    setData(response);
     setReqParams(requestParams);
   }
 

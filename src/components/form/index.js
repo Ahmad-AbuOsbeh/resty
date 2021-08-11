@@ -1,32 +1,87 @@
-function Form(props) {
-  function handleSubmit(e) {
-    e.preventDefault();
-    const formData = {
-      method: 'GET',
-      // url: 'https://pokeapi.co/api/v2/pokemon',
-      // method: e.target.id.value,
-      url: e.target.url.value,
-    };
-    // console.log('e.target.url', e.target.url.value);
-    // console.log('e.target.id', e.target.id);
+import { useState } from 'react';
+import './form.scss';
 
-    props.handleApiCall(formData);
+function Form(props) {
+  const [url, seturl] = useState('https://pokeapi.co/api/v2/pokemon');
+  const [method, setMethod] = useState('GET');
+  const [showField, setShowField] = useState(false);
+  const [userData, setUserData] = useState('write your data here here as a json');
+  const [loading, setLoading] = useState('Done and watining for another request');
+  // const [showLoading, setShowLoading] = useState(false);
+
+  // let url = 'https://pokeapi.co/api/v2/pokemon';
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const userData = new FormData(e.target);
+    const value = userData.get('userData');
+
+    const formData = {
+      method: method,
+      url: url,
+    };
+    setShowField(false);
+    let response;
+    if (method == 'PUT' || method == 'POST') {
+      response = { data: value };
+    } else if (method == 'DELETE') {
+      response = { delete: 'delete done' };
+    } else {
+      setLoading('Loading..');
+      const data = await fetch(url);
+      console.log('data.headers', data.headers);
+      const dataJson = await data.json();
+      response = dataJson;
+      setLoading('Done and watining for another request');
+    }
+
+    props.handleApiCall(formData, response);
   }
+
+  function onChangeHandlerUrl(e) {
+    seturl(e.target.value);
+  }
+  function onChangeHandlerUserData(e) {
+    setUserData(e.target.value);
+  }
+  function methodsHandler(e) {
+    // i have problem here; there is a lag in setMethod by one!
+    setMethod(e.target.value);
+    if (e.target.value == 'POST' || e.target.value == 'PUT') {
+      setShowField(true);
+    } else {
+      setShowField(false);
+    }
+  }
+
   return (
     <>
+      <h5>Request Status : {loading}</h5>
       <form onSubmit={handleSubmit}>
         <label>
           <span>URL: </span>
-          <input name='url' type='text' />
+          <input name='url' type='text' value={url} onChange={onChangeHandlerUrl} />
           <button type='submit'>GO!</button>
           <br />
         </label>
-        <label className='methods'>
-          <span id='get'> GET </span>
-          <span id='post'> POST </span>
-          <span id='put'> PUT </span>
-          <span id='delete'> DELETE </span>
-        </label>
+
+        <select className='methods' name='methods' onChange={methodsHandler}>
+          <option id='get' value='GET'>
+            GET
+          </option>
+          <option id='post' value='POST'>
+            POST
+          </option>
+          <option id='put' value='PUT'>
+            PUT
+          </option>
+          <option id='delete' value='DELETE'>
+            DELETE
+          </option>
+        </select>
+        <br />
+        <br />
+        <br />
+        {showField && <input name='userData' type='text' id='put-post' value={userData} onChange={onChangeHandlerUserData}></input>}
       </form>
     </>
   );
