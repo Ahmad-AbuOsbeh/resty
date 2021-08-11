@@ -34,7 +34,7 @@
 
 ### Deployment link:
 
-- [https://bgcoq.csb.app/](https://bgcoq.csb.app/)
+- [https://resty-abuosbeh.netlify.app/](https://resty-abuosbeh.netlify.app/)
 
 ### UML
 
