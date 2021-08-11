@@ -9,6 +9,15 @@ import { useState } from 'react';
 function App() {
   const [data, setData] = useState(null);
   const [requestParams, setReqParams] = useState({});
+  const [sohwLoading, setsohwLoading] = useState(false);
+
+  //show loading
+  function shwLoading() {
+    setsohwLoading(true);
+    setTimeout(() => {
+      setsohwLoading(false);
+    }, 1000);
+  }
   function callApi(requestParams, response) {
     // mock output
     // const data = {
@@ -28,8 +37,8 @@ function App() {
       <Header />
       <div>Request Method: {requestParams.method}</div>
       <div>URL: {requestParams.url}</div>
-      <Form handleApiCall={callApi} />
-      <Results data={data} />
+      <Form handleApiCall={callApi} sohwLoading={sohwLoading} shwLoading={shwLoading} />
+      {!sohwLoading && <Results data={data} />}
       <Footer />
     </React.Fragment>
   );
