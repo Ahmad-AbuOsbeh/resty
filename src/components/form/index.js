@@ -6,12 +6,11 @@ function Form(props) {
   const [method, setMethod] = useState('GET');
   const [showField, setShowField] = useState(false);
   const [userData, setUserData] = useState('write your data here here as a json');
-  const [loading, setLoading] = useState('Done and watining for another request');
-  // const [showLoading, setShowLoading] = useState(false);
 
   // let url = 'https://pokeapi.co/api/v2/pokemon';
   async function handleSubmit(e) {
     e.preventDefault();
+    props.shwLoading();
     const userData = new FormData(e.target);
     const value = userData.get('userData');
 
@@ -26,12 +25,10 @@ function Form(props) {
     } else if (method == 'DELETE') {
       response = { delete: 'delete done' };
     } else {
-      setLoading('Loading..');
       const data = await fetch(url);
       console.log('data.headers', data.headers);
       const dataJson = await data.json();
       response = dataJson;
-      setLoading('Done and watining for another request');
     }
 
     props.handleApiCall(formData, response);
@@ -55,12 +52,14 @@ function Form(props) {
 
   return (
     <>
-      <h5>Request Status : {loading}</h5>
+      {props.sohwLoading && <h5>Lodaing..</h5>}
       <form onSubmit={handleSubmit}>
         <label>
           <span>URL: </span>
           <input name='url' type='text' value={url} onChange={onChangeHandlerUrl} />
-          <button type='submit'>GO!</button>
+          <button type='submit' data-testid='submitButton'>
+            GO!
+          </button>
           <br />
         </label>
 
