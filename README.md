@@ -34,7 +34,7 @@
 
 ### Deployment link:
 
-- [lab27-Sandbox-link](https://codesandbox.io/s/lab27-2pg5x)
+- [lab27-Sandbox-link](https://codesandbox.io/s/gallant-galois-cctxl)
 - [https://2pg5x.csb.app/](https://2pg5x.csb.app/)
 
 ### UML
