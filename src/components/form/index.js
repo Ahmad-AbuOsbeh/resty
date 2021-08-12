@@ -52,7 +52,7 @@ function Form(props) {
 
   return (
     <>
-      {props.sohwLoading && <h5>Lodaing..</h5>}
+      {props.sohwLoading && <h3 style={{ color: 'red' }}>Lodaing..</h3>}
       <form onSubmit={handleSubmit}>
         <label>
           <span>URL: </span>

@@ -43,12 +43,12 @@ function App() {
       <Header />
       <div>Request Method: {requestParams.method}</div>
       <div>URL: {requestParams.url}</div>
-      <h4>Welcome Message :{didMountData}</h4>
-      <ul>
-        <h2>History Reqeusts :</h2>
+      <h4 style={{ color: 'gray' }}>Welcome Message :{didMountData}</h4>
+      <ul style={{ color: 'green' }}>
+        <h2 style={{ color: 'green' }}>History Reqeusts :</h2>
 
         {historyReq.map((req) => {
-          return <li>{req}</li>;
+          return <li style={{ color: 'green' }}>{req}</li>;
         })}
       </ul>
       <Form handleApiCall={callApi} sohwLoading={sohwLoading} shwLoading={shwLoading} />
