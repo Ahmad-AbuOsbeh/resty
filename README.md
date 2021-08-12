@@ -34,10 +34,30 @@
 
 ### Deployment link:
 
-
 - [https://resty-abuosbeh.netlify.app/](https://resty-abuosbeh.netlify.app/)
-
 
 ### UML
 
 - ![UML-lab27](src/images/UML-lab27.jpg)
+
+<br/>
+  <br/>
+
+# useEffect() Hook
+
+- added useEffect hook
+- DidMount
+- DidUpdate
+- willUnMount.
+
+### PR link :
+
+- [https://github.com/Ahmad-AbuOsbeh/resty/pull/6](https://github.com/Ahmad-AbuOsbeh/resty/pull/6)
+
+### Deployment link:
+
+- [https://resty-abuosbeh.netlify.app/](https://resty-abuosbeh.netlify.app/)
+
+### UML
+
+- same UML for lab 27
