@@ -61,3 +61,23 @@
 ### UML
 
 - same UML for lab 27
+
+<br/>
+<br/>
+
+# Advanced State with Reducers
+
+- added useReducer hook instead of using useState.
+- this useReduce will update the history calls of APIs, showh hide loading, request parameters detailes, and response results.
+
+### PR link :
+
+- [https://github.com/Ahmad-AbuOsbeh/resty/pull/7](https://github.com/Ahmad-AbuOsbeh/resty/pull/7)
+
+### Deployment link:
+
+- [https://resty-abuosbeh.netlify.app/](https://resty-abuosbeh.netlify.app/)
+
+### UML
+
+- same UML for lab 27

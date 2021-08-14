@@ -10,7 +10,7 @@ function Form(props) {
   // let url = 'https://pokeapi.co/api/v2/pokemon';
   async function handleSubmit(e) {
     e.preventDefault();
-    props.shwLoading();
+    props.shwLoadingFunction();
     const userData = new FormData(e.target);
     const value = userData.get('userData');
 
@@ -42,6 +42,8 @@ function Form(props) {
   }
   function methodsHandler(e) {
     // i have problem here; there is a lag in setMethod by one!
+    // answer : onChange is asyncronouns function and can't use the state after setting it directly, only we can useEffect to do that or by e.target.value, not the state itself.
+    // and async, await will not work also.
     setMethod(e.target.value);
     if (e.target.value == 'POST' || e.target.value == 'PUT') {
       setShowField(true);
@@ -60,6 +62,7 @@ function Form(props) {
           <button type='submit' data-testid='submitButton'>
             GO!
           </button>
+
           <br />
         </label>
 
