@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 function Results(props) {
   // will un mount
   useEffect(() => {
-return (
+return ()=>{
  console.log('Results Cleaned UP !');
-)
+}
    
   });
   return (
