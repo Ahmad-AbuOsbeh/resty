@@ -3,7 +3,10 @@ import { useState, useEffect } from 'react';
 function Results(props) {
   // will un mount
   useEffect(() => {
-    console.log('Results Cleaned UP !');
+return (
+ console.log('Results Cleaned UP !');
+)
+   
   });
   return (
     <section>
